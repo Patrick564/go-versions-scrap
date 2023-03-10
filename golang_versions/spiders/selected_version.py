@@ -16,7 +16,7 @@ class SelectedVersionSpider(scrapy.Spider):
         f.close()
 
         versions_list = SelectedVersionListItem()
-        result = []
+        result = {}
         versions = file[0]["versions"]
 
         for version in versions:
@@ -34,7 +34,7 @@ class SelectedVersionSpider(scrapy.Spider):
 
                 field.append(selected_version)
 
-            result.append(field)
+            result[version] = field
 
         versions_list["all_versions"] = result
 
