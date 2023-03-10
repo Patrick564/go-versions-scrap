@@ -13,4 +13,8 @@ class VersionsItem(scrapy.Item):
 class SelectedVersionItem(scrapy.Item):
     filename = scrapy.Field()
     size = scrapy.Field()
-    chekcsum = scrapy.Field()
+    checksum = scrapy.Field()
+
+
+class SelectedVersionListItem(scrapy.Item):
+    all_versions = scrapy.Field()
