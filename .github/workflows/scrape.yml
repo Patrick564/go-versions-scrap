@@ -26,6 +26,9 @@ jobs:
       - name: Update database
         run: |
           scrapy runspider golang_versions/spiders/versions.py -O data/versions.json
+
+      - name: Update repository
+        run: |
           git config --global user.name 'golang-versions-bot'
           git config --global user.email 'golang-versions-bot@bot.noreply.github.com'
           git commit -am 'bot] Update versions database'
