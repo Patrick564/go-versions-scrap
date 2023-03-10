@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '0 0 * * *'
 
 jobs:
   update_symbol_list:
@@ -32,5 +32,5 @@ jobs:
         run: |
           git config --global user.name 'golang-versions-bot'
           git config --global user.email 'golang-versions-bot@bot.noreply.github.com'
-          git commit -am '[bot] Update versions database'
+          git diff --quiet && git diff --staged --quiet || git commit -am '[bot] Update versions database'
           git push origin main
