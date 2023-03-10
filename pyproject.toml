@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "golang-versions-list"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
 authors = ["Patrick <pvilchez794@gmail.com>"]
 readme = "README.md"
