@@ -27,5 +27,6 @@ jobs:
         run: |
           scrapy runspider golang_versions/spiders/versions.py -O data/versions.json
           git config user.name golang-versions-bot
-          git commit -am "[bot] Update versions database"
+          git add .
+          git commit -m "[bot] Update versions database"
           git push origin main
