@@ -27,6 +27,7 @@ jobs:
       - name: Update database
         run: |
           scrapy runspider golang_versions/spiders/versions.py -O data/versions.json
+          scrapy runspider golang_versions/spiders/selected_versions.py -O data/selected_versions.json
 
       - name: Update repository
         run: |
