@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: '46 4 * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   update_symbol_list:
