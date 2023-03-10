@@ -32,5 +32,5 @@ jobs:
         run: |
           git config --global user.name 'golang-versions-bot'
           git config --global user.email 'golang-versions-bot@bot.noreply.github.com'
-          git diff --quiet && git diff --staged --quiet || git commit -am 'bot] Update versions database'
+          git commit -am '[bot] Update versions database'
           git push origin main
