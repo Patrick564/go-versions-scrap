@@ -11,6 +11,9 @@ class VersionsSpider(scrapy.Spider):
     def parse(self, response):
         versions = VersionsItem()
 
-        versions["versions"] = response.xpath("//*[@class='toggle']/@id").getall()
+        mainVersions = response.xpath("//*[@class='toggleVisible']/@id").getall()
+        archiveVersions = response.xpath("//*[@class='toggle']/@id").getall()[1:]
+
+        versions["versions"] = mainVersions + archiveVersions
 
         return versions
