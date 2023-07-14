@@ -1,5 +1,6 @@
 import json
 import os
+
 import scrapy
 
 from golang_versions.items import SelectedVersionItem, SelectedVersionListItem
@@ -8,7 +9,7 @@ from golang_versions.items import SelectedVersionItem, SelectedVersionListItem
 class SelectedVersionSpider(scrapy.Spider):
     name = "selected_version"
     allowed_domains = ["go.dev"]
-    start_urls = ["http://go.dev/dl/"]
+    start_urls = ["https://go.dev/dl/"]
 
     def parse(self, response):
         f = open(os.getcwd() + "/data/versions.json")
@@ -21,7 +22,9 @@ class SelectedVersionSpider(scrapy.Spider):
 
         for version in versions:
             field = []
-            download_list = response.xpath(f"//*[@id='{version}']//div[@class='expanded']//table//tr[@class='highlight']")
+            download_list = response.xpath(
+                f"//*[@id='{version}']//div[@class='expanded']//table//tr[@class='highlight ']"
+            )
 
             for element in download_list:
                 selected_version = SelectedVersionItem()
