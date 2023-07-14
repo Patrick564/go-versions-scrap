@@ -1,4 +1,5 @@
 import scrapy
+from scrapy.http import TextResponse
 
 from golang_versions.items import VersionsItem
 
@@ -8,7 +9,7 @@ class VersionsSpider(scrapy.Spider):
     allowed_domains = ["go.dev"]
     start_urls = ["https://go.dev/dl/"]
 
-    def parse(self, response):
+    def parse(self, response: TextResponse):
         versions = VersionsItem()
 
         mainVersions = response.xpath(

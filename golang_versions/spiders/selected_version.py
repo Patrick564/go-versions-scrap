@@ -2,6 +2,7 @@ import json
 import os
 
 import scrapy
+from scrapy.http import TextResponse
 
 from golang_versions.items import SelectedVersionItem, SelectedVersionListItem
 
@@ -11,7 +12,7 @@ class SelectedVersionSpider(scrapy.Spider):
     allowed_domains = ["go.dev"]
     start_urls = ["https://go.dev/dl/"]
 
-    def parse(self, response):
+    def parse(self, response: TextResponse):
         f = open(os.getcwd() + "/data/versions.json")
         file = json.load(f)
         f.close()
